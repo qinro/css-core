@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="演示css3属性选择器的应用">
+    <title>案例1：设计图片灯箱导航按钮</title>
+    <style>
+    /* 灯箱外框样式 */
+        .pic-box{
+            border: 0.3rem solid #bbb;
+            position: relative;
+            float: left;
+        }
+        .pic-box img{
+            width: 31.25rem;
+            border: 1px solid #fff;
+        }
+        /* 导航框样式 */
+        .nav{
+            background:#999;
+            border: 1px solid #ccc;
+            padding: 0.25rem 0.75rem;
+            float: left;
+            opacity: 0.6;
+            position: absolute;
+            bottom: .2rem;
+            right: 2rem;
+        }
+        /* 导航按钮样式 */
+        .nav a{
+            float: left;
+            display: block;
+            height: 1.2rem;
+            line-height: 1.5em;
+            width: 1.2rem;
+            -moz-border-radius: 0.4rem;
+            -webkit-border-radius: 0.4rem;
+            border-radius: 0.4rem;
+            text-align: center;
+            background: rgb(33, 59, 92);
+            color: rgb(155, 200, 238);
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+        .nav a:hover{
+            background: rgb(44, 109, 207);
+            color: rgb(192, 209, 247);
+        }
+    </style>
+</head>
+<body>
+    <div class="pic-box">
+        <img src="../images/1.jpg" alt="展示搜索引擎搜索到的内容，无关键信息的图片可不用此属性">
+        <div class="nav">
+            <!-- 主要利用锚点的属性，能迅速定位当前页面的某个标签 -->
+            <a href="#1" class="links item first" title="qinroTest" target="_blank" id="first">1</a>
+            <a href="#2" class="links active item" title="test website" target="_blank" lang="zh">2</a>
+            <a href="#3" class="links item" title="this is a link" lang="zh-ch">3</a>
+            <a href="#4" class="links item" target="_blank" lang="zh-zw">4</a>
+            <a href="#5" class="links item" title="zh-cn">5</a>
+            <a href="#6" class="links item" title="website link" lang="zh">6</a>
+            <a href="#7" class="links item" title="open the website" lang="cn">7</a>
+            <a href="#8" class="links item" title="close the website" lang="en-zh">8</a>
+            <a href="#9" class="links item" title="http://www.baidu.com">9</a>
+            <a href="#10" class="links item last" id="last">10</a>
+        </div>
+    </div>
+</body>
+</html>
