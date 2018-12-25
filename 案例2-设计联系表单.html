@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="介绍表单属性对象过滤选择器获取表单对象的方法">
+    <title>css篇-案例2：设计联系表单</title>
+    <style type="text/css">
+        /* 重置网页默认标签样式 start*/
+        /* 清除常用标签对象的默认边距、边框和焦点线样式 */
+        body, div, h1, form, fieldset, input, textarea, {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+        }
+        /* 定义网页高度为窗口高度 */
+        html{height:100%;}
+        /* 设计网页基本显示效果 */
+        body {
+            background: #728eaa;
+            background: -moz-linear-gradient(top, #25303c 0%, #728eaa 100%); /* firefox */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #25303c), color-stop(100%, #728eaa));
+            font-family: sans-serif;
+        }
+        /* 重置样式 end */
+        /* 表单结构样式 start */
+        #contact{
+            width: 30rem;
+            margin: 1.25rem auto;
+            padding: .75rem;
+            background: #c9d0de;
+            border: 1px solid #e1e1e1;
+            -moz-box-shadow: 0px 0px 8px #444;
+            -webkit-box-shadow: 0px 0px 8px #444;
+        }
+        h1{
+            font-size: 2.25em;
+            color: #445668;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0 0 1.25em 0;
+            text-shadow: 0 1px 0 #f2f2f2;
+        }
+        /* end */
+        /* 表单内标签样式 start */
+        label{
+            /* 标签文本样式：向左浮动，右对齐文本，定义文本投影特效 */
+            float: left;
+            clear: left;
+            margin: 11px 20px 0 0;
+            width: 95px;
+            text-align: right;
+            font-size: 1em;
+            color: #445668;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 #f2f2f2;
+        }
+        input{
+            /* 文本框样式：固定宽高，增加边界，定义简便背景色，设计圆角样式 */
+            width: 260px;
+            height: 35px;
+            padding: 5px 20px 0 20px;
+            margin: 0 0 20px 0;
+            background: #5e768d;
+            background: -moz-linear-gradient(top, #546A7F 0%, #5e768d 20%); /* firefox */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #546a7f), color-stop(20%, #5e768d));
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 0 1px 0 #f2f2f2;
+            -webkit-box-shadow: 0 1px 0 #f2f2f2;
+            font-family: sans-serif;
+            font-size: 1rem;
+            color: #f2f2f2;
+            text-transform: uppercase;
+            text-shadow: 0 -1px 0 #334f71;
+        } 
+        input::-webkit-input-placeholder{
+            color: #a1b2c3;
+            text-shadow: 0 -1px 0 #38506b;
+        }
+        input:-moz-placeholder{
+            color: #a1b2c3;
+            text-shadow: 0 -1px 0 #38506b;
+        }
+        textarea{
+            /* 文本区域样式：固定宽和高，增加边界，定义渐变背景色，设计圆角，设计阴影特效 */
+            width: 16.25rem;
+            height: 10.65rem;
+            padding:0.75rem 1.25rem 0 1.25rem;
+            margin: 0 0 1.25rem 0;
+            background: #5e768d;
+            background: -moz-linear-gradient(top, #546A7F 0%, #5e768d 20%); /* firefox */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #546a7f), color-stop(20%, #5e768d));
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 1rem;
+            color: #f2f2f2;
+            text-transform: uppercase;
+            text-shadow: 0 -1px 0 #334f71;
+        }
+        textarea::-webkit-input-placeholder{
+            color: #a1b2c3;
+            text-shadow: 0 -1px 0 #38506b;
+        }
+        textarea:-moz-placeholder{
+            color: #a1b2c3;
+            text-shadow: 0 -1px 0 #38506b;
+        }
+        /* end */
+        /* 提交按钮和不可用文本框的样式 */
+        input[type=submit]{
+            width: 7.5rem;
+            height: 3.25rem;
+            float: right;
+            padding: 5px 10px;
+            margin: 0 1.75rem 0 0;
+            background: -moz-linear-gradient(top, #718da9 0%, #415d79 100%); /* firefox */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #718da9), color-stop(100%, #415d79));
+            -moz-box-shadow: 0 0 .3rem #999;
+            -webkit-box-shadow: 0 0 .3rem #999;
+            border: 1px solid #556f8c;
+            cursor: pointer;
+        }
+        input[disabled]{
+            color:#aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="contact">
+        <h1>联系表</h1>
+        <form action="" method="post">
+            <fieldset>
+                <label for="name">昵称：</label>
+                <input type="text" id="name" disabled placeholder="新浪微博账号"/>
+                <label for="email">邮箱：</label>
+                <input type="text" id="email" placeholder="请输入你的邮箱"/>
+                <label for="message">反馈信息：</label>
+                <textarea id="message" placeholder="请留下你的意见和建议？"></textarea>
+                <input type="submit" value="发送信息">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
